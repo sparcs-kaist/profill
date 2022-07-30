@@ -8,3 +8,4 @@ class User(SQLModel, table=True):
     name: str
     username: str
     description: str = Field(default="", max_length=100)
+    profile_image: str | None

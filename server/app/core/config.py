@@ -14,6 +14,9 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = "sqlite:///data.db"
 
+    AWS_ACCESS_KEY_ID: str
+    AWS_SECRET_ACCESS_KEY: str
+    AWS_BUCKET_NAME: str
 
 
 settings = Settings(_env_file=".env")
