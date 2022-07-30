@@ -8,6 +8,10 @@ authors = ["Soonho Kwon <percy3368@gmail.com>"]
 python = "^3.10"
 fastapi = "^0.79.0"
 uvicorn = "^0.18.2"
+sqlmodel = "^0.0.6"
+python-ldap = "^3.4.2"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+pydantic = {extras = ["dotenv"], version = "^1.9.1"}
 
 [tool.poetry.dev-dependencies]
 
