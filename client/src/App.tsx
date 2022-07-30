@@ -4,6 +4,7 @@ import { GlobalStyle } from "./common/style";
 import Header from "./component/Header/Header";
 import styled from "styled-components";
 import Main from "./pages/Main/Main";
+import Login from "./pages/Login/Login";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <AppContainer>
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>

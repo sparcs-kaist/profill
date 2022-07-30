@@ -4,13 +4,13 @@ import {
   Container,
   Description,
   DescriptionTextArea,
-  EditButton,
   Name,
   NameContent,
   UserName,
   ProfileImage,
   TextContent
 } from "./styled";
+import EditButton from "../UI/Button";
 
 interface MyBoxProps {
   user: User;
