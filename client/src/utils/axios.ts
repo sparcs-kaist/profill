@@ -10,7 +10,7 @@ instance.interceptors.request.use(config => {
 
   if (token)
     config.headers = {
-      'X-Access-Token': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     };
 
   return config;
