@@ -1,7 +1,7 @@
 export const saveToken = (token: string): void => {
-  localStorage.setItem('biseo-jwt', token);
+  localStorage.setItem('profill-jwt', token);
 };
 
 export const logout = (): void => {
-  localStorage.removeItem('biseo-jwt');
+  localStorage.removeItem('profill-jwt');
 };
