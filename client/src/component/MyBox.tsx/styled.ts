@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const ProfileImage = styled.img`
   width: 120px;
   height: 120px;
+  cursor: pointer;
 `;
 
 export const TextContent = styled.div`

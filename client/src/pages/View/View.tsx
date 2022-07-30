@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useParams } from 'react-router-dom';
 import { User } from "../../common/types";
+import MyBox from "../../component/MyBox.tsx/MyBox";
 import axios from '../../utils/axios';
+import { Container, ImageGrid } from "./styled";
 
 const View = () => {
   const [valid, setValid] = useState<boolean>(true);
@@ -26,9 +28,15 @@ const View = () => {
   }, [])
 
   return valid ? (
-    <div>
-      Hello World!
-    </div>
+    <Container>
+      <MyBox
+        user={user}
+        setUser={setUser}
+      />
+      <ImageGrid>
+        {}
+      </ImageGrid>
+    </Container>
   ) : (
     <Navigate replace to="/login" />
   )

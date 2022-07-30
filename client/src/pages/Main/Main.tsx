@@ -52,11 +52,26 @@ const Main = () => {
     })
   }, []);
 
+  const editDescription = (edited: string) => {
+    axios.post('/users/me', {
+      description: edited
+    })
+    .then(res => {
+      const newInfo = res.data;
+      setMyInfo(newInfo);
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  }
+
   return valid ? (
     <Container>
       <MyBox
         user={myInfo}
-        setMyInfo={setMyInfo}
+        setUser={setMyInfo}
+        isMe
+        editDescription={editDescription}
       />
       <UsersGrid>
         {users && users.map((user, idx) => {
