@@ -1,15 +1,26 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Container, Input, InputArea, InputLabel, LoginButton } from "./styled";
-import axios from "axios";
+import axios from "../../utils/axios";
 import qs from 'qs';
 import { saveToken } from '../../utils/auth';
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [isLogined, setIsLogined] = useState<boolean>(false);
   const [id, setId] = useState<string>("");
   const [pw, setPw] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('/users/me')
+    .then(res => {
+      if (res.status === 200) {
+        setIsLogined(true);
+      }
+    })
+    .catch(() => {})
+  }, [])
 
   const login = (e: FormEvent) => {
     e.preventDefault();
@@ -19,18 +30,10 @@ const Login = () => {
       username: id,
       password: pw
     };
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: qs.stringify(data),
-      url: 'http://localhost:8000/api/auth/',
-    };
-    axios(options)
-    .catch(() => {
-      setError(true);
-      setId("");
-      setPw("");
-      throw new Error('login Error');
+    axios.post('/auth/', 
+    qs.stringify(data),
+    {
+      headers: {'content-type': 'application/x-www-form-urlencoded'}
     })
     .then(res => {
       if (res.status === 200) {
@@ -39,13 +42,16 @@ const Login = () => {
       }
       else {
         setError(true);
-        setId("");
         setPw("");
       }
+    })
+    .catch(() => { 
+      setError(true);
+      setPw("");
     });
   }
 
-  return (
+  return !isLogined ? (
     <Container>
       <form
         style={{
@@ -61,6 +67,7 @@ const Login = () => {
           <Input
             type="text"
             placeholder="username"
+            value={id}
             onChange={e => setId(e.target.value)}
           />
         </InputArea>
@@ -71,6 +78,7 @@ const Login = () => {
           <Input
             type="password"
             placeholder="password"
+            value={pw}
             onChange={e => setPw(e.target.value)}
           />
         </InputArea>
@@ -82,6 +90,8 @@ const Login = () => {
         </LoginButton>
       </form>
     </Container>
+  ) : (
+    <Navigate replace to="/" />
   )
 }
 
