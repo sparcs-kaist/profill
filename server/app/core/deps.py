@@ -7,7 +7,7 @@ from app.models import User
 from app.core.security import decode_access_token, TokenError
 
 oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="auth/login-docs"
+    tokenUrl="auth/"
 )
 
 credentials_exception = HTTPException(
@@ -19,12 +19,12 @@ credentials_exception = HTTPException(
 
 async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
     try:
-        user_id = decode_access_token(token)
+        username = decode_access_token(token)
     except TokenError:
         raise credentials_exception
 
     with Session(engine) as session:
-        user = session.exec(select(User).where(User.id == user_id)).first()
+        user = session.exec(select(User).where(User.username == username)).first()
         if user is None:
             raise credentials_exception
         return user
