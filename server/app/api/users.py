@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from sqlmodel import Session, select
 
-from server.core.database import engine
-from server.models import User
+from app.core.database import engine
+from app.models import User
 
 router = APIRouter()
 
