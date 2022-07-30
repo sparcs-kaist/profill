@@ -15,7 +15,7 @@ client = boto3.client(
     aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
 )
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_user)])
 
 
 @router.post("/profile", response_model=User)
@@ -35,6 +35,18 @@ async def upload_profile_image(
         session.refresh(current_user)
 
     return current_user
+
+
+@router.get("/{username}/gallery")
+async def get_user_gallery(username: str):
+    query = select(Image)\
+        .join(User, onclause=Image.user_id == User.id)\
+        .where(User.username == username)
+
+    with Session(engine) as session:
+        images = session.exec(query).all()
+
+    return images
 
 
 @router.post("/{username}/gallery")
