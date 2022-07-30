@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-const ImageBox = styled.img`
+const ImageBox = styled.div<{ src: string }>`
   position: relative;
   width: 97%;
-  background-color: #e0e0e0;
+  background-image: url(${(props) => props.src});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+  background-position: center;
+
   margin: 5px;
   cursor: pointer;
 

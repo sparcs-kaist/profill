@@ -8,9 +8,17 @@ export const Container = styled.div`
   margin: 10px auto 80px auto;
 `;
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled.div<{ src: string }>`
   width: 120px;
+  min-width: 120px;
   height: 120px;
+  min-height: 120px;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-color: #f0f0f0;
+  background-position: center;
+  border-radius: 90px;
+  margin-right: 10px;
   cursor: pointer;
 `;
 
@@ -18,7 +26,6 @@ export const TextContent = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 `;
 
 export const NameContent = styled.div`
