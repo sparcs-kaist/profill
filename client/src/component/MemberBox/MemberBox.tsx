@@ -1,4 +1,5 @@
 import React from "react";
+import { User } from "../../common/types";
 import {
   Container,
   Description,
@@ -8,15 +9,11 @@ import {
 } from "./styled";
 
 interface MemberBoxProps {
-  name: string;
-  nickname: string;
-  description: string;
+  user: User;
 }
 
 const MemberBox = ({
-  name,
-  nickname,
-  description
+  user
 }: MemberBoxProps) => {
   return (
     <Container>
@@ -24,14 +21,14 @@ const MemberBox = ({
       <TextContent>
         <NameContent>
           <Name>
-            {name}
+            {user.name}
           </Name>
           <Nickname>
-            {nickname}
+            {user.nickname}
           </Nickname>
         </NameContent>
         <Description>
-          {description}
+          {user.description}
         </Description>
       </TextContent>
     </Container>

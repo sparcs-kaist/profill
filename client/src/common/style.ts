@@ -3,6 +3,8 @@ import { device, maxWidth } from '../../src/utils/device';
 
 export const COLOR = {
   primary: '#504CCD',
+  border: '#B1AEFF',
+  box: '#f1f1f1',
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -21,6 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     --main-margin-top: 33px;
     --main-margin-bottom: 32px;
     --color-primary: ${COLOR.primary};
+    --color-border: ${COLOR.border};
+    --color-box: ${COLOR.box};
   }
 
   @media screen and (max-width:640px) {

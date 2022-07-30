@@ -1,27 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: calc(100% - 70px);
-  height: 96px;
-  background-color: var(--color-box);
+  width: 70%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 15px 30px;
-  margin: 5px 5px;
-  cursor: pointer;
-  transition: 0.2s linear;
-
-  &:hover {
-    background-color: #e0e0e0;
-  }
+  margin: 10px auto 80px auto;
 `;
 
 export const ProfileImage = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 120px;
 `;
 
 export const TextContent = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
@@ -49,4 +42,31 @@ export const Description = styled.span`
   font-size: 0.8rem;
   font-weight: 400;
   margin: 5px 5px;
+`;
+
+export const DescriptionTextArea = styled.textarea.attrs({
+  autoFocus: true,
+  rows: 4,
+  maxLength: 100
+})`
+  resize: none;
+  font-family: 'Roboto';
+  border: 2px solid var(--color-border);
+  border-radius: 5px;
+  outline: none;
+`;
+
+export const EditButton = styled.button`
+  width: 100%;
+  height: 25px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--color-border);
+  transition: 0.2s linear;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-border);
+    color: #ffffff;
+  }
 `;

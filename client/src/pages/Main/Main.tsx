@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { User } from "../../common/types";
 import MemberBox from "../../component/MemberBox/MemberBox";
-import { Container } from "./styled";
+import MyBox from "../../component/MyBox.tsx/MyBox";
+import { Container, UsersGrid } from "./styled";
 
 const Main = () => {
+  const [myInfo, setMyInfo] = useState<User>(
+    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요" }
+  )
   const [users, setUsers] = useState<User[]>([
     { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
     { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
@@ -24,16 +28,20 @@ const Main = () => {
   ]);
   return (
     <Container>
-      {users.map((user, idx) => {
-        return (
-          <MemberBox
-            name={user.name}
-            nickname={user.nickname}
-            description={user.description}
-            key={idx}
-          />
-        )
-      })}
+      <MyBox
+        user={myInfo}
+        setMyInfo={setMyInfo}
+      />
+      <UsersGrid>
+        {users.map((user, idx) => {
+          return (
+            <MemberBox
+              user={user}
+              key={idx}
+            />
+          )
+        })}
+      </UsersGrid>
     </Container>
   )
 }

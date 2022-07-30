@@ -3,6 +3,13 @@ import { device } from "../../utils/device";
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const UsersGrid = styled.div`
+  width: 100%;
   display: grid;
 
   @media ${device.mobile} {
@@ -16,5 +23,4 @@ export const Container = styled.div`
   @media ${device.laptop} {
     grid-template-columns: 1fr 1fr 1fr;
   }
-
 `;
