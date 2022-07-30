@@ -8,12 +8,12 @@ class TokenError(Exception):
     pass
 
 
-def create_access_token(uuid: str) -> str:
+def create_access_token(payload: str) -> str:
     expire = datetime.utcnow() + timedelta(
         days=settings.ACCESS_TOKEN_EXPIRE_DAYS
     )
     return jwt.encode(
-        {"sub": uuid, "exp": expire},
+        {"sub": payload, "exp": expire},
         settings.SECRET_KEY,
         algorithm=settings.ALGORITHM
     )
@@ -30,10 +30,10 @@ def decode_access_token(token: str) -> str:
         if expire is None or datetime.now() >= datetime.fromtimestamp(expire):
             raise TokenError
 
-        user_id = payload.get("sub")
-        if user_id is None:
+        payload = payload.get("sub")
+        if payload is None:
             raise TokenError
-        return user_id
+        return payload
 
     except JWTError:
         raise TokenError
