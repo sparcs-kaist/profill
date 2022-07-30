@@ -5,6 +5,7 @@ import Header from "./component/Header/Header";
 import styled from "styled-components";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
+import View from "./pages/View/View";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/view/:username" element={<View />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>
