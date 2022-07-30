@@ -18,7 +18,7 @@ client = boto3.client(
 router = APIRouter(dependencies=[Depends(get_current_user)])
 
 
-@router.post("/profile", response_model=User)
+@router.post("/profile", response_model=User, status_code=201)
 async def upload_profile_image(
         profile_image: UploadFile = File(...),
         current_user: User = Depends(get_current_user)
@@ -37,8 +37,8 @@ async def upload_profile_image(
     return current_user
 
 
-@router.get("/{username}/gallery")
-async def get_user_gallery(username: str):
+@router.get("/{username}/gallery", response_model=list[Image])
+async def get_user_gallery(username: str) -> list[Image]:
     query = select(Image)\
         .join(User, onclause=Image.user_id == User.id)\
         .where(User.username == username)
@@ -49,12 +49,11 @@ async def get_user_gallery(username: str):
     return images
 
 
-@router.post("/{username}/gallery")
+@router.post("/{username}/gallery", response_model=Image, status_code=201)
 async def upload_gallery_image(
         username: str,
         gallery_image: UploadFile = File(...),
-        current_user: User = Depends(get_current_user)
-):
+        current_user: User = Depends(get_current_user)) -> Image:
     with Session(engine) as session:
         user = session.exec(
             select(User).where(User.username == username)
