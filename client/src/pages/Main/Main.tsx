@@ -7,40 +7,40 @@ import axios from "../../utils/axios";
 import { Link, Navigate } from "react-router-dom";
 
 const Main = () => {
-  const testMyInfo = { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요" };
-  const testUsers: User[] = [
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
-  ];
+  // const testMyInfo = { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요" };
+  // const testUsers: User[] = [
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  //   { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!", profile_image: "" },
+  // ];
   const [valid, setValid] = useState<boolean>(true);
   const [myInfo, setMyInfo] = useState<User>({
     id: "-1", name: "", username: "", description: "", profile_image: ""
   });
-  const [users, setUsers] = useState<User[]>(testUsers);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    // axios.get('/users/')
-    // .then(res => {
-    //   const users = res.data;
-    //   setUsers(users);
-    // })
-    // .catch(() => {
-    //   setValid(false);
-    // })
+    axios.get('/users/')
+    .then(res => {
+      const users = res.data;
+      setUsers(users);
+    })
+    .catch(() => {
+      setValid(false);
+    })
 
     axios.get('/users/me')
     .then(res => {
