@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from server import api
-from server.core.database import init_db
+from app import api
+from app.core.database import init_db
 
 app = FastAPI()
 

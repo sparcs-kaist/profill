@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
 
-from server.core.config import settings
+from app.core.config import settings
 
 
 class TokenError(Exception):
