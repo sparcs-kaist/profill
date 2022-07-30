@@ -17,7 +17,7 @@ def authenticate(username, password) -> User | None:
         user = session.exec(
             select(User)
             .where(User.username == user_data.id)
-        ).first()
+        ).one_or_none()
 
         if user is None:
             user = User(

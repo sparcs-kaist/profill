@@ -20,11 +20,16 @@ credentials_exception = HTTPException(
 async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
     try:
         username = decode_access_token(token)
+        print("QWERQWER" + username)
     except TokenError:
         raise credentials_exception
 
     with Session(engine) as session:
-        user = session.exec(select(User).where(User.username == username)).first()
+        user = session.exec(
+            select(User)
+            .where(User.username == username)
+        ).one_or_none()
+
         if user is None:
             raise credentials_exception
         return user
