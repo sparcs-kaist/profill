@@ -6,7 +6,7 @@ from app.core.deps import get_current_user
 from app.models import User
 from app.schemas import UserUpdate
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_user)])
 
 
 @router.get("/", response_model=list[User])
@@ -38,7 +38,7 @@ async def update_me(
 
 
 @router.get("/{username}", response_model=User)
-async def get_user(username: str, current_user: User = Depends(get_current_user)) -> User:
+async def get_user(username: str) -> User:
     query = select(User).where(User.username == username)
 
     with Session(engine) as session:
