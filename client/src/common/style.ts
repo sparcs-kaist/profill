@@ -3,7 +3,6 @@ import { device, maxWidth } from '../../src/utils/device';
 
 export const COLOR = {
   primary: '#504CCD',
-  vacant: '#3C3C3C',
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -11,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background: white;
+    font-family: 'Roboto';
   }
 
   :root {
@@ -48,9 +48,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media screen and ${device.laptopL} {
+  /* @media screen and ${device.laptopL} {
     :root {
       --screen-max-width: ${maxWidth.laptopL};
     }
-  }
+  } */
 `;
