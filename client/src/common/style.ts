@@ -14,6 +14,11 @@ export const GlobalStyle = createGlobalStyle`
     background: white;
     font-family: 'Roboto';
   }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
 
   :root {
     --header-height: 27px;
