@@ -3,7 +3,7 @@ import { User } from "../../common/types";
 import {
   Container,
   Description,
-  Name, NameContent, Nickname,
+  Name, NameContent, UserName,
   ProfileImage,
   TextContent
 } from "./styled";
@@ -23,9 +23,9 @@ const MemberBox = ({
           <Name>
             {user.name}
           </Name>
-          <Nickname>
-            {user.nickname}
-          </Nickname>
+          <UserName>
+            {user.username}
+          </UserName>
         </NameContent>
         <Description>
           {user.description}

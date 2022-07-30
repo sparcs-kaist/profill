@@ -6,25 +6,25 @@ import { Container, UsersGrid } from "./styled";
 
 const Main = () => {
   const [myInfo, setMyInfo] = useState<User>(
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요" }
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요!안녕하세요" }
   )
   const [users, setUsers] = useState<User[]>([
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
-    { id: "1", name: "류치곤", nickname: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
+    { id: "1", name: "류치곤", username: "gony", description: "안녕하세요!" },
   ]);
   return (
     <Container>

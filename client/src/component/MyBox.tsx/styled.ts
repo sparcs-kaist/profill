@@ -32,7 +32,7 @@ export const Name = styled.span`
   margin: 5px 5px;
 `;
 
-export const Nickname = styled.span`
+export const UserName = styled.span`
   font-size: 1rem;
   font-weight: 500;
   margin: 5px 5px;

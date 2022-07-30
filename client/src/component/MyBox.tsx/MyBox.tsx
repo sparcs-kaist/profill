@@ -7,7 +7,7 @@ import {
   EditButton,
   Name,
   NameContent,
-  Nickname,
+  UserName,
   ProfileImage,
   TextContent
 } from "./styled";
@@ -49,9 +49,9 @@ const MyBox = ({
           <Name>
             {user.name}
           </Name>
-          <Nickname>
-            {user.nickname}
-          </Nickname>
+          <UserName>
+            {user.username}
+          </UserName>
         </NameContent>
         {editMode ? (
           <DescriptionTextArea
