@@ -1,6 +1,10 @@
+from typing import Optional
+
 from sqlmodel import SQLModel, Field
 
 
 class User(SQLModel, table=True):
-    id: str = Field(primary_key=True)
-    username: str = Field()
+    id: Optional[int] = Field(default=None, primary_key=True)
+    name: str
+    username: str
+    description: str = Field(default="", max_length=100)
