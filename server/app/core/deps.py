@@ -7,7 +7,7 @@ from app.models import User
 from app.core.security import decode_access_token, TokenError
 
 oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="auth/"
+    tokenUrl="api/auth/"
 )
 
 credentials_exception = HTTPException(
@@ -20,7 +20,6 @@ credentials_exception = HTTPException(
 async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
     try:
         username = decode_access_token(token)
-        print("QWERQWER" + username)
     except TokenError:
         raise credentials_exception
 
