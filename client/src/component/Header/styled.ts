@@ -18,5 +18,10 @@ export const Content = styled.div`
 `;
 
 export const Logo = styled.img`
-  height: var(--header-height)
+  height: var(--header-height);
+`;
+
+export const Logout = styled.img`
+  height: calc(var(--header-height) - 5px);
+  cursor: pointer;
 `;

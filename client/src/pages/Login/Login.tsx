@@ -30,11 +30,13 @@ const Login = () => {
       username: id,
       password: pw
     };
-    axios.post('/auth/', 
-    qs.stringify(data),
-    {
-      headers: {'content-type': 'application/x-www-form-urlencoded'}
-    })
+    const options = {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify(data),
+      url: 'http://localhost:8000/api/auth/',
+    };
+    axios(options)
     .then(res => {
       if (res.status === 200) {
         saveToken(res.data.access_token);
