@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef, MutableRefObject } from "react";
 import { Navigate, useParams } from 'react-router-dom';
-import { User } from "../../common/types";
+import { Gallery, User } from "../../common/types";
 import MyBox from "../../component/MyBox.tsx/MyBox";
+import ImageBox from "../../component/UI/ImageBox";
 import axios from '../../utils/axios';
 import { CameraIcon, Container, GalleryGrid, InputImage } from "./styled";
 
@@ -10,6 +11,7 @@ const View = () => {
   const [user, setUser] = useState<User>({
     id: "-1", name: "", username: "", description: "", profile_image: ""
   })
+  const [gallery, setGallery] = useState<Gallery[]>([]);
   const params = useParams();
   const selectFile = useRef<HTMLInputElement>(null) as MutableRefObject<HTMLInputElement>;
 
@@ -22,6 +24,17 @@ const View = () => {
     .then(res => {
       const user: User = res.data;
       setUser(user);
+    })
+    .catch(() => {
+      setValid(false);
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`/images/${params.username}/gallery`)
+    .then(res => {
+      const newGallery: Gallery[] = res.data;
+      setGallery(newGallery);
     })
     .catch(() => {
       setValid(false);
@@ -42,8 +55,8 @@ const View = () => {
       }
     })
     .then(res => {
-      const user = res.data;
-      setUser(user);
+      const newGallery = res.data;
+      setGallery([newGallery, ...gallery]);
     })
   }
 
@@ -59,7 +72,9 @@ const View = () => {
         >
           <CameraIcon src="/camera.svg" />
         </InputImage>
-        {}
+        {gallery && gallery.map((image, idx) => {
+          return <ImageBox src={image.url} key={idx} />
+        })}
       </GalleryGrid>
       <input
         type="file"
