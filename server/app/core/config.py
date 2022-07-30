@@ -15,4 +15,5 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///data.db"
 
 
+
 settings = Settings(_env_file=".env")
