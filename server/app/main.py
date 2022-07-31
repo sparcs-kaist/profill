@@ -10,7 +10,15 @@ app = FastAPI()
 app.include_router(api.router, prefix="/api")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=[
+        "http://ssal.sparcs.org:42293/",
+        "https://ssal.sparcs.org:42293/",
+        "http://ssal.sparcs.org/",
+        "ssal.sparcs.org:42293",
+        "ssal.sparcs.org",
+        "*",
+
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
