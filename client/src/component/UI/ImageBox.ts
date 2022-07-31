@@ -4,7 +4,7 @@ const ImageBox = styled.div<{ src: string }>`
   position: relative;
   width: 97%;
   background-image: url(${(props) => props.src});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: #f0f0f0;
   background-position: center;
