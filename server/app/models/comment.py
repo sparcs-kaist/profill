@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 
 from sqlmodel import SQLModel, Field
 
@@ -8,3 +9,4 @@ class Comment(SQLModel, table=True):
     creator_id: int = Field(foreign_key="user.id")
     user_id: int = Field(foreign_key="user.id")
     content: str
+    created_at: str = datetime.now().timestamp()

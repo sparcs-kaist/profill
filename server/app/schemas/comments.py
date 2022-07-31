@@ -11,3 +11,4 @@ class JoinedComment(BaseModel):
     id: int
     creator: User
     content: str
+    created_at: str
