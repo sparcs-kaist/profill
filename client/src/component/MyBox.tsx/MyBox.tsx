@@ -75,7 +75,7 @@ const MyBox = ({
     <Container>
       <ProfileImage
         src={user.profile_image || "/empty.svg"}
-        onClick={() => selectFile.current.click()}
+        onClick={() => isMe && selectFile.current.click()}
       />
       <input
         type="file"
