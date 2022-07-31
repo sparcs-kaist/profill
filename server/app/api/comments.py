@@ -33,12 +33,12 @@ async def get_comments(username: str) -> list[JoinedComment]:
     return comments
 
 
-@router.post("/{username}/comments", response_model=Comment)
+@router.post("/{username}/comments", response_model=JoinedComment)
 async def write_comment(
         username: str,
         comment_create: CreateComment,
         current_user: User = Depends(get_current_user)
-) -> Comment:
+) -> JoinedComment:
     with Session(engine) as session:
         user = session.exec(
             select(User)
@@ -58,4 +58,7 @@ async def write_comment(
         session.commit()
         session.refresh(comment)
 
-        return comment
+        return JoinedComment(
+            **comment.dict(),
+            creator=current_user,
+        )
