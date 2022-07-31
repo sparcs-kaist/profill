@@ -33,7 +33,7 @@ const CommentsBox = ({
     };
     const options = {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', withCredentials: true },
       data: data,
       url: `${BASE_URL}/api/${user.username}/comments`,
     };

@@ -33,7 +33,7 @@ const Login = () => {
     };
     const options = {
       method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      headers: { 'content-type': 'application/x-www-form-urlencoded', withCredentials: true  },
       data: qs.stringify(data),
       url: `${BASE_URL}/api/auth/`,
     };
