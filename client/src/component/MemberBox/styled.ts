@@ -22,7 +22,7 @@ export const ProfileImage = styled.div<{ src: string }>`
   height: 70px;
   min-height: 70px;
   background-image: url(${(props) => props.src});
-  background-size: contain;
+  background-size: cover;
   background-color: #f0f0f0;
   background-position: center;
   border-radius: 90px;
