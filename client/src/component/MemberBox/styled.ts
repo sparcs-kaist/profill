@@ -10,6 +10,7 @@ export const Container = styled.div`
   margin: 5px 5px;
   cursor: pointer;
   transition: 0.2s linear;
+  border-radius: 5px;
 
   &:hover {
     background-color: #e0e0e0;
