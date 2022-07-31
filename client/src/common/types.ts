@@ -13,3 +13,9 @@ export interface Gallery {
   url: string;
   created_at: string;
 }
+
+export interface Comment {
+  id: string;
+  creator: User;
+  content: string;
+}

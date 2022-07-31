@@ -4,6 +4,7 @@ import axios from "../../utils/axios";
 import qs from 'qs';
 import { saveToken } from '../../utils/auth';
 import { Navigate, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../component/config";
 
 const Login = () => {
   const [isLogined, setIsLogined] = useState<boolean>(false);
@@ -34,7 +35,7 @@ const Login = () => {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       data: qs.stringify(data),
-      url: 'http://localhost:8000/api/auth/',
+      url: `${BASE_URL}/api/auth/`,
     };
     axios(options)
     .then(res => {

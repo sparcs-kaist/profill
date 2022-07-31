@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 10px auto 80px auto;
+  margin: 10px auto 60px auto;
 `;
 
 export const ProfileImage = styled.div<{ src: string }>`

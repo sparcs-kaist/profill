@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, MutableRefObject } from "react";
 import { Navigate, useParams } from 'react-router-dom';
-import { Gallery, User } from "../../common/types";
+import { Comment, Gallery, User } from "../../common/types";
+import CommentsBox from "../../component/CommentsBox/CommentsBox";
 import MyBox from "../../component/MyBox.tsx/MyBox";
 import ImageBox from "../../component/UI/ImageBox";
 import axios from '../../utils/axios';
@@ -12,6 +13,7 @@ const View = () => {
     id: "-1", name: "", username: "", description: "", profile_image: ""
   })
   const [gallery, setGallery] = useState<Gallery[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const params = useParams();
   const selectFile = useRef<HTMLInputElement>(null) as MutableRefObject<HTMLInputElement>;
 
@@ -35,6 +37,17 @@ const View = () => {
     .then(res => {
       const newGallery: Gallery[] = res.data;
       setGallery(newGallery);
+    })
+    .catch(() => {
+      setValid(false);
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`/${params.username}/comments`)
+    .then(res => {
+      const newComments: Comment[] = res.data;
+      setComments(newComments.reverse());
     })
     .catch(() => {
       setValid(false);
@@ -65,6 +78,11 @@ const View = () => {
       <MyBox
         user={user}
         setUser={setUser}
+      />
+      <CommentsBox
+        user={user}
+        comments={comments}
+        setComments={setComments}
       />
       <GalleryGrid>
         <InputImage
