@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --header-height: 27px;
+    --header-height: 38px;
     --header-border: 5px;
     --header-margin: 23px;
     --header-size: calc(var(--header-height) + var(--header-margin) + var(--header-border));
