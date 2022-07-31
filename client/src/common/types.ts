@@ -18,4 +18,5 @@ export interface Comment {
   id: string;
   creator: User;
   content: string;
+  created_at: string;
 }
