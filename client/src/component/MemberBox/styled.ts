@@ -16,9 +16,17 @@ export const Container = styled.div`
   }
 `;
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled.div<{ src: string }>`
   width: 70px;
+  min-width: 70px;
   height: 70px;
+  min-height: 70px;
+  background-image: url(${(props) => props.src});
+  background-size: contain;
+  background-color: #f0f0f0;
+  background-position: center;
+  border-radius: 90px;
+  margin-right: 10px;
 `;
 
 export const TextContent = styled.div`
