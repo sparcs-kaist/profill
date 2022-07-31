@@ -35,6 +35,7 @@ export const CommentItem = styled.div`
   padding: 10px 15px;
   position: relative;
   word-break: break-word;
+  border-radius: 999px;
 `;
 
 export const CommentInfo = styled.div`
@@ -66,8 +67,8 @@ export const InputContainer = styled.div`
 `;
 
 export const Input = styled.textarea.attrs({
-  rows: 4,
-  maxLength: 250
+    rows: 4,
+    maxLength: 250,
 })`
   width: calc(100% - 58px);
   height: 52px;
