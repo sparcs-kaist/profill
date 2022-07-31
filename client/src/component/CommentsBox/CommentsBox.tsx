@@ -59,9 +59,9 @@ const CommentsBox = ({
                 <Writer>
                   {comment.creator && comment.creator.username}
                 </Writer>
-                <DateText>
+                {/* <DateText>
                   {(Date(comment.created_at))}
-                </DateText>
+                </DateText> */}
               </CommentInfo>
             </CommentContainer>
           )
