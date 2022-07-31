@@ -17,7 +17,9 @@ const MemberBox = ({
 }: MemberBoxProps) => {
   return (
     <Container>
-      <ProfileImage src="/empty.svg" />
+      <ProfileImage 
+        src={user.profile_image || "/empty.svg"}
+      />
       <TextContent>
         <NameContent>
           <Name>
