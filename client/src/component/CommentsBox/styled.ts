@@ -84,8 +84,10 @@ export const Input = styled.textarea.attrs({
 export const Enter = styled.button`
   width: 60px;
   height: 60px;
-  background-color: #F4F3FF;
-  border: none;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 3px solid var(--background-color);
+  border-radius: 5px;
 
   &:hover {
     filter: brightness(0.98);

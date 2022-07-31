@@ -3,7 +3,7 @@ import { device, maxWidth } from '../../src/utils/device';
 
 export const COLOR = {
   primary: '#504CCD',
-  border: '#B1AEFF',
+  border: '#ebebef',
   box: '#f1f1f1',
 };
 
